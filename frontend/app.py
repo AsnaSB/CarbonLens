@@ -6,6 +6,83 @@ BASE_URL = "http://127.0.0.1:8000"
 
 st.set_page_config(page_title="CarbonLens", layout="wide")
 
+# ---------------------------------------------------
+# LIGHT BACKGROUND + BLACK TEXT + BLACK LABELS
+# ---------------------------------------------------
+def set_light_bg(url: str):
+    st.markdown(
+        f"""
+        <style>
+
+        /* Background Image with White Overlay */
+        .stApp {{
+            background: linear-gradient(rgba(255,255,255,0.30), rgba(255,255,255,0.20)),
+                        url("{url}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+
+        /* Main Content Container */
+        section.main > div {{
+            background-color: rgba(255,255,255,0.55);
+            padding: 30px;
+            border-radius: 18px;
+        }}
+
+        /* Force All Text to Black */
+        html, body, [class*="css"] {{
+            color: black !important;
+        }}
+
+        h1, h2, h3, h4 {{
+            color: black !important;
+        }}
+
+        /* ✅ Force widget labels (Category/Description/Value/Transport Mode) to BLACK */
+        div[data-testid="stWidgetLabel"] > label {{
+            color: black !important;
+        }}
+
+        /* Light Input Fields */
+        div[data-baseweb="select"] > div,
+        .stTextInput input,
+        .stNumberInput input {{
+            background-color: #ffffff !important;
+            color: black !important;
+            border-radius: 8px !important;
+        }}
+
+        /* Buttons */
+        .stButton button {{
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
+            border: none;
+        }}
+
+        .stButton button:hover {{
+            background-color: #45a049;
+        }}
+
+        /* Dataframe Background */
+        .stDataFrame {{
+            background-color: white !important;
+        }}
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+set_light_bg(
+    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80"
+)
+
+# ---------------------------------------------------
+# UI CONTENT
+# ---------------------------------------------------
 st.title("🌱 CarbonLens Dashboard")
 
 # ---------------------------------------------------
