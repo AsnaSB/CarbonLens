@@ -1,0 +1,24 @@
+{
+  "transport": {
+    "car": 0.21,
+    "bus": 0.05,
+    "train": 0.04,
+    "bike": 0.0,
+    "flight": 0.15
+  },
+  "electricity": {
+    "default_grid_factor": 0.82
+  },
+  "spending": {
+  "food": 0.03,
+  "shopping": 0.04,
+  "travel": 0.05,
+  "clothing": 0.035,
+  "default": 0.02
+},
+  "credits": {
+    "credit_unit_kg": 1000,
+    "credit_rate": 1.0,
+    "bonus_rate": 0.1
+  }
+}
