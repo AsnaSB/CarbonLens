@@ -1,11 +1,16 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
+from typing import Optional
+
 
 class EventCreate(BaseModel):
-    category: str = Field(..., examples=["transport", "electricity", "spending"])
-    description: str = Field(..., examples=["Car trip to college"])
-    value: float = Field(..., ge=0, examples=[12.5])
-    co2_kg: float = Field(..., ge=0, examples=[2.4])
+    category: str
+    description: str
+    value: float = Field(..., ge=0)
+
+    transport_mode: Optional[str] = None
+    spend_category: Optional[str] = "default"
+
 
 class EventOut(BaseModel):
     id: int
